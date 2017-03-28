@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load custom_markdown %}
+
+{% block content %}
+<div>
+        <h2>{{ article_p.title }}</h2>
+        <p>TIME:{{ article_p.date_time }}</p>
+        <p>CATE:<a href="{% url 'tag' cate=article_p.category%}">{{ article_p.category }}</a></p>
+        <div>{{ post.content|custom_markdown }}</div>
+
+
+</div>
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class Article(models.Model):
@@ -10,4 +11,9 @@ class Article(models.Model):
     def __str__(self):
         return self.article
 
+    def get_absolute_url(self):
+        path = reverse('detail', kwargs={'article_id': self.article_id})
+        return "http://127.0.0.1:8000%s" % path
 
+    class Meta:
+        ordering = ['-date_time']

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>所有文章：</h1>
+<div>
+    {% for article in articles %}
+        <h2><a href="{% url 'detail' article_id=article.id%}">{{ article.title }}</a></h2>
+        <p>TIME:{{ article.date_time |date:"Y /m /d"}}</p>
+        <p>CATE:<a href="{% url 'tag' cate=article.category%}">{{ article.category }}</a></p>
+        <div>{{ article.article }}</div>
+        <a class="pure-button" href="{% url "detail" article_id=article.id %}">Read More >>> </a>
+
+    {% endfor %}
+</div>
+</body>
+</html>

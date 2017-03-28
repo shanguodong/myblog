@@ -6,9 +6,20 @@
 </head>
 <body>
 <h1>Welcome to my blog</h1>
+<li>
+    <form class="pure-form" action="/search/" method="get">
+    <input class="pure-input-3-3" type="text" name="search_name" placeholder="search">
+    </form>
+    </li>
+<li>
+    <a href="{% url 'allarticle' %}">Archive</a>
+</li>
     {% block content %}
     {% endblock %}
-<p>about</p>
+<ul>
+    <li><a href="{% url 'aboutme' %}">About Me</a></li>
+    <li><a href="{% url 'feed' %}">RSS</a></li>
+</ul>
 
 </body>
 </html>
